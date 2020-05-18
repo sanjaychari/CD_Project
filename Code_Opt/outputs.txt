@@ -1,0 +1,186 @@
+---------------------------------Token Sequence--------------------------
+1 T_NL
+2 T_NL
+3 T_IMPT T_scipy T_NL
+4 T_Def T_f T_OP T_CP T_Cln T_NL
+5 T_ID T_x T_EQL T_1 T_NL
+6 T_NL
+7 T_x T_EQL T_2 T_NL
+8 T_y T_EQL T_1 T_NL
+9 T_NL
+10 T_a T_EQL T_3 T_NL
+11 T_b T_EQL T_4 T_NL
+12 T_c T_EQL T_2 T_NL
+13 T_d T_EQL T_a T_PL T_b T_NL
+14 T_NL
+15 T_If T_OP T_x T_EQ T_1 T_CP T_Cln T_NL
+16 T_ID T_c T_EQL T_1 T_NL
+17 T_Elif T_OP T_y T_EQ T_1 T_CP T_Cln T_NL
+18 T_ID T_c T_EQL T_2 T_NL
+19 T_Else T_Cln T_NL
+20 T_ID T_c T_EQL T_1 T_NL
+21 T_NL
+22 T_EOF 
+Valid Python Syntax
+
+-------------------------Abstract Syntax Tree--------------------------
+NewLine(2) 
+import(1) NewLine(2) 
+scipy  Func_Name(3) NewLine(2) 
+     f  Void  BeginBlock(2) =(2) NewLine(2) 
+          =(2) EndBlock  x  2  =(2) NewLine(2) 
+                    x  1  y  1  =(2) NewLine(2) 
+                        a  3  =(2) NewLine(2) 
+                          b  4  =(2) NewLine(2) 
+                            c  2  =(2) If(3) 
+                              d  +(2) ==(2) BeginBlock(2) Elif(3) 
+                               a  b  x  1  =(2) EndBlock  ==(2) BeginBlock(2) Else(1) 
+                                           c  1  y  1  =(2) EndBlock  BeginBlock(2) 
+                                                       c  2  =(2) EndBlock  
+                                                                 c  1  
+import scipy
+Begin Function f
+T3 = 1
+x = T3
+End Function f
+T10 = 2
+x = T10
+T13 = 1
+y = T13
+T16 = 3
+a = T16
+T19 = 4
+b = T19
+T22 = 2
+c = T22
+T25 = a
+T26 = b
+T27 = T25 + T26
+d = T27
+T30 = x
+T31 = 1
+T32 = T30 == T31
+If False T32 goto L0
+T33 = 1
+c = T33
+goto L1
+L0: T38 = y
+T39 = 1
+T40 = T38 == T39
+If False T40 goto L0
+T41 = 2
+c = T41
+goto L1
+L0: T46 = 1
+c = T46
+L1: L1: 
+--------------------------------All Quads---------------------------------
+0	import	scipy	-	-
+1	BeginF	f	-	-
+2	=	1	-	T3
+3	=	T3	-	x
+4	EndF	f	-	-
+5	=	2	-	T10
+6	=	T10	-	x
+7	=	1	-	T13
+8	=	T13	-	y
+9	=	3	-	T16
+10	=	T16	-	a
+11	=	4	-	T19
+12	=	T19	-	b
+13	=	2	-	T22
+14	=	T22	-	c
+15	=	a	-	T25
+16	=	b	-	T26
+17	+	T25	T26	T27
+18	=	T27	-	d
+19	=	x	-	T30
+20	=	1	-	T31
+21	==	T30	T31	T32
+22	If False	T32	-	L0
+23	=	1	-	T33
+24	=	T33	-	c
+25	goto	-	-	L1
+26	Label	-	-	L0
+27	=	y	-	T38
+28	=	1	-	T39
+29	==	T38	T39	T40
+30	If False	T40	-	L0
+31	=	2	-	T41
+32	=	T41	-	c
+33	goto	-	-	L1
+34	Label	-	-	L0
+35	=	1	-	T46
+36	=	T46	-	c
+37	Label	-	-	L1
+38	Label	-	-	L1
+--------------------------------------------------------------------------
+
+----------------------------All Symbol Tables----------------------------
+Scope	Name	Type		Declaration	Last Used Line
+(0, 1)	scipy	PackageName	3		3
+(0, 1)	f	Func_Name	4		4
+(0, 1)	T3	ICGTempVar	-1		-1
+(0, 1)	T10	ICGTempVar	-1		-1
+(0, 1)	T13	ICGTempVar	-1		-1
+(0, 1)	T16	ICGTempVar	-1		-1
+(0, 1)	T19	ICGTempVar	-1		-1
+(0, 1)	T22	ICGTempVar	-1		-1
+(0, 1)	T25	ICGTempVar	-1		-1
+(0, 1)	T26	ICGTempVar	-1		-1
+(0, 1)	T27	ICGTempVar	-1		-1
+(0, 1)	T30	ICGTempVar	-1		-1
+(0, 1)	T31	ICGTempVar	-1		-1
+(0, 1)	T32	ICGTempVar	-1		-1
+(0, 1)	L0	ICGTempLabel	-1		-1
+(0, 1)	T33	ICGTempVar	-1		-1
+(0, 1)	L1	ICGTempLabel	-1		-1
+(0, 1)	T38	ICGTempVar	-1		-1
+(0, 1)	T39	ICGTempVar	-1		-1
+(0, 1)	T40	ICGTempVar	-1		-1
+(0, 1)	T41	ICGTempVar	-1		-1
+(0, 1)	T46	ICGTempVar	-1		-1
+(0, 2)	1	Constant	5		15
+(0, 2)	x	Identifier	5		15
+(0, 2)	2	Constant	7		12
+(0, 2)	y	Identifier	8		17
+(0, 2)	3	Constant	10		10
+(0, 2)	a	Identifier	10		13
+(0, 2)	4	Constant	11		11
+(0, 2)	b	Identifier	11		13
+(0, 2)	c	Identifier	12		12
+(0, 2)	d	Identifier	13		13
+(1, 4)	1	Constant	16		17
+(1, 4)	c	Identifier	16		16
+(1, 8)	2	Constant	18		18
+(1, 8)	c	Identifier	18		18
+(1, 16)	1	Constant	20		20
+(1, 16)	c	Identifier	20		20
+-------------------------------------------------------------------------
+
+--------------------------------All Quads---------------------------------
+0	import	scipy	-	-
+1	BeginF	f	-	-
+2	=	1	-	T3
+3	=	T3	-	x
+4	EndF	f	-	-
+5	=	2	-	T10
+6	=	T10	-	x
+7	=	1	-	T13
+8	=	T13	-	y
+19	=	x	-	T30
+20	=	1	-	T31
+21	==	T30	T31	T32
+22	If False	T32	-	L0
+25	goto	-	-	L1
+26	Label	-	-	L0
+27	=	y	-	T38
+28	=	1	-	T39
+29	==	T38	T39	T40
+30	If False	T40	-	L0
+33	goto	-	-	L1
+34	Label	-	-	L0
+37	Label	-	-	L1
+38	Label	-	-	L1
+--------------------------------------------------------------------------
+

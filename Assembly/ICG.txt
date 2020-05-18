@@ -1,0 +1,32 @@
+start
+T10 = 2
+x = T10
+T13 = 1
+y = T13
+T16 = 3
+a = T16
+T19 = 4
+b = T19
+T22 = 2
+c = T22
+T25 = a
+T26 = b
+T27 = T25 + T26
+d = T27
+T30 = x
+T31 = 1
+T32 = T30 == T31
+If False T32 goto L0
+T33 = 1
+c = T33
+goto L1
+L0: T38 = y
+T39 = 1
+T40 = T38 == T39
+If False T40 goto L0
+T41 = 2
+c = T41
+goto L1
+L0: T46 = 1
+c = T46
+stop
