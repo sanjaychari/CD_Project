@@ -1,8 +1,8 @@
 # CD_Project
-#Introduction
+# Introduction
 The project showcases a mini compiler coded using lex and yacc; that compiles Python3 code. We have implemented if-elif-else constructs, while loops, and functions.
 
-#Steps To Run
+# Steps To Run
 1. Run
 $git clone https://github.com/sanjaychari/CD_Project $cd CD_Project
 2. To view the symbol table, run $cd Symbol_table
