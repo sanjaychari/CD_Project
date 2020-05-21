@@ -1,0 +1,9 @@
+Name                	Class               	Scope               	Declared Line Number	Latest Occurence Line Number	Value                                             
+scipy               	Variable            	0                   	3                   	3                   	                                                  
+f                   	Function            	0                   	4                   	4                   	                                                  
+x                   	Variable            	1                   	5                   	15                  	1                                                 
+y                   	Variable            	0                   	8                   	17                  	1                                                 
+a                   	Variable            	0                   	10                  	13                  	3                                                 
+b                   	Variable            	0                   	11                  	13                  	4                                                 
+c                   	Variable            	0                   	12                  	20                  	1                                                 
+d                   	Variable            	0                   	13                  	13                  	                                                  

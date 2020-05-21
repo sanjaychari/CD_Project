@@ -244,10 +244,6 @@
 	
   void codeGenOp(node *opNode)
   {
-  	if(!strcmp(opNode->NType, "If"))
-  	{
-  	
-  	}
 	}
 	
 	void codeGenValue(char *type, char *value)
@@ -526,30 +522,29 @@
 	  
 	  if(root->noOps >= 0)
 	  {
-	    /*int i;
+	    int i;
 	    for(i = 0; i < tabCount; i++)
 	    {
 	      printf("  ");
-	    }*/
+	    }
 	    
 	    printf("%s\n", root->NType);
 	    
-	    //tabCount++;
-	    for(int i=0; i < root->noOps; i++)
+	    tabCount++;
+	    for(i=0; i < root->noOps; i++)
 	    {
 	      printAST(root->NextLevel[i]);
 	    }
-	    //printf("\n");
-	    //tabCount--;
+	    tabCount--;
 	  }
 	  
 	  if(root->noOps == -1)
 	  {
 	    int i = 0;
-	    /*for(i = 0; i < tabCount; i++)
+	    for(i = 0; i < tabCount; i++)
 	    {
 	      printf("  ");
-	    }*/
+	    }
 	    
 	    printf("%s ", root->id->name);
 	  }	  
@@ -594,10 +589,10 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 414 "grammar.y"
+#line 409 "grammar.y"
 {char *text; int depth; struct ASTNode* node;}
 /* Line 193 of yacc.c.  */
-#line 601 "y.tab.c"
+#line 596 "y.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -622,7 +617,7 @@ typedef struct YYLTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 626 "y.tab.c"
+#line 621 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -939,14 +934,14 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   430,   430,   430,   432,   433,   435,   436,   436,   439,
-     441,   441,   441,   441,   443,   444,   445,   446,   447,   448,
-     449,   450,   452,   453,   454,   455,   456,   457,   460,   461,
-     462,   463,   464,   465,   466,   468,   469,   470,   471,   473,
-     474,   476,   477,   478,   479,   481,   482,   483,   484,   486,
-     488,   489,   490,   492,   493,   496,   497,   499,   500,   502,
-     504,   506,   507,   507,   509,   510,   512,   512,   513,   515,
-     516,   518,   518,   520,   520,   522
+       0,   425,   425,   425,   427,   428,   430,   431,   431,   434,
+     436,   436,   436,   436,   438,   439,   440,   441,   442,   443,
+     444,   445,   447,   448,   449,   450,   451,   452,   455,   456,
+     457,   458,   459,   460,   461,   463,   464,   465,   466,   468,
+     469,   471,   472,   473,   474,   476,   477,   478,   479,   481,
+     483,   484,   485,   487,   488,   491,   492,   494,   495,   497,
+     499,   501,   502,   502,   504,   505,   507,   507,   508,   510,
+     511,   513,   513,   515,   515,   517
 };
 #endif
 
@@ -1979,363 +1974,363 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 430 "grammar.y"
+#line 425 "grammar.y"
     {init();}
     break;
 
   case 3:
-#line 430 "grammar.y"
+#line 425 "grammar.y"
     {printf("\nValid Python Syntax\n"); printSTable(); printAST((yyvsp[(2) - (3)].node)); freeAll(); exit(0);}
     break;
 
   case 4:
-#line 432 "grammar.y"
+#line 427 "grammar.y"
     {insertRecord("Constant", (yyvsp[(1) - (1)].text), (yylsp[(1) - (1)]).first_line, currentScope); (yyval.node) = createID_Const("Constant", (yyvsp[(1) - (1)].text), currentScope);}
     break;
 
   case 5:
-#line 433 "grammar.y"
+#line 428 "grammar.y"
     {insertRecord("Constant", (yyvsp[(1) - (1)].text), (yylsp[(1) - (1)]).first_line, currentScope); (yyval.node) = createID_Const("Constant", (yyvsp[(1) - (1)].text), currentScope);}
     break;
 
   case 6:
-#line 435 "grammar.y"
+#line 430 "grammar.y"
     {modifyRecordID("Identifier", (yyvsp[(1) - (1)].text), (yylsp[(1) - (1)]).first_line, currentScope); (yyval.node) = createID_Const("Identifier", (yyvsp[(1) - (1)].text), currentScope);}
     break;
 
   case 9:
-#line 439 "grammar.y"
+#line 434 "grammar.y"
     {checkList((yyvsp[(1) - (4)].text), (yylsp[(1) - (4)]).first_line, currentScope); (yyval.node) = createOp("ListIndex", 1, (yyvsp[(3) - (4)].node));}
     break;
 
   case 10:
-#line 441 "grammar.y"
+#line 436 "grammar.y"
     {(yyval.node) = (yyvsp[(2) - (2)].node);}
     break;
 
   case 11:
-#line 441 "grammar.y"
+#line 436 "grammar.y"
     {resetDepth();}
     break;
 
   case 12:
-#line 441 "grammar.y"
+#line 436 "grammar.y"
     {(yyval.node) = createOp("NewScope", 2, (yyvsp[(1) - (4)].node), (yyvsp[(4) - (4)].node));}
     break;
 
   case 13:
-#line 441 "grammar.y"
+#line 436 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 14:
-#line 443 "grammar.y"
+#line 438 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 15:
-#line 444 "grammar.y"
+#line 439 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 16:
-#line 445 "grammar.y"
+#line 440 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 17:
-#line 446 "grammar.y"
+#line 441 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 18:
-#line 447 "grammar.y"
+#line 442 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 19:
-#line 448 "grammar.y"
+#line 443 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 20:
-#line 449 "grammar.y"
+#line 444 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 21:
-#line 450 "grammar.y"
+#line 445 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 22:
-#line 452 "grammar.y"
+#line 447 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 23:
-#line 453 "grammar.y"
+#line 448 "grammar.y"
     {(yyval.node) = createOp("+", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 24:
-#line 454 "grammar.y"
+#line 449 "grammar.y"
     {(yyval.node) = createOp("-", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 25:
-#line 455 "grammar.y"
+#line 450 "grammar.y"
     {(yyval.node) = createOp("*", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 26:
-#line 456 "grammar.y"
+#line 451 "grammar.y"
     {(yyval.node) = createOp("/", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 27:
-#line 457 "grammar.y"
+#line 452 "grammar.y"
     {(yyval.node) = (yyvsp[(2) - (3)].node);}
     break;
 
   case 28:
-#line 460 "grammar.y"
+#line 455 "grammar.y"
     {(yyval.node) = createOp("or", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 29:
-#line 461 "grammar.y"
+#line 456 "grammar.y"
     {(yyval.node) = createOp("<", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 30:
-#line 462 "grammar.y"
+#line 457 "grammar.y"
     {(yyval.node) = createOp("and", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 31:
-#line 463 "grammar.y"
+#line 458 "grammar.y"
     {(yyval.node) = createOp(">", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 32:
-#line 464 "grammar.y"
+#line 459 "grammar.y"
     {(yyval.node) = createOp("<=", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 33:
-#line 465 "grammar.y"
+#line 460 "grammar.y"
     {(yyval.node) = createOp(">=", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 34:
-#line 466 "grammar.y"
+#line 461 "grammar.y"
     {(yyval.node)=(yyvsp[(1) - (1)].node);}
     break;
 
   case 35:
-#line 468 "grammar.y"
+#line 463 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 36:
-#line 469 "grammar.y"
+#line 464 "grammar.y"
     {(yyval.node) = createOp("==", 2, (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));}
     break;
 
   case 37:
-#line 470 "grammar.y"
+#line 465 "grammar.y"
     {insertRecord("Constant", "True", (yylsp[(1) - (1)]).first_line, currentScope); (yyval.node) = createID_Const("Constant", "True", currentScope);}
     break;
 
   case 38:
-#line 471 "grammar.y"
+#line 466 "grammar.y"
     {insertRecord("Constant", "False", (yylsp[(1) - (1)]).first_line, currentScope); (yyval.node) = createID_Const("Constant", "False", currentScope);}
     break;
 
   case 39:
-#line 473 "grammar.y"
+#line 468 "grammar.y"
     {(yyval.node) = createOp("!", 1, (yyvsp[(2) - (2)].node));}
     break;
 
   case 40:
-#line 474 "grammar.y"
+#line 469 "grammar.y"
     {(yyval.node) = (yyvsp[(2) - (3)].node);}
     break;
 
   case 41:
-#line 476 "grammar.y"
+#line 471 "grammar.y"
     {insertRecord("PackageName", (yyvsp[(2) - (2)].text), (yylsp[(2) - (2)]).first_line, currentScope); (yyval.node) = createOp("import", 1, createID_Const("PackageName", (yyvsp[(2) - (2)].text), currentScope));}
     break;
 
   case 42:
-#line 477 "grammar.y"
+#line 472 "grammar.y"
     {(yyval.node) = createOp("pass", 0);}
     break;
 
   case 43:
-#line 478 "grammar.y"
+#line 473 "grammar.y"
     {(yyval.node) = createOp("break", 0);}
     break;
 
   case 44:
-#line 479 "grammar.y"
+#line 474 "grammar.y"
     {(yyval.node) = createOp("return", 0);}
     break;
 
   case 45:
-#line 481 "grammar.y"
+#line 476 "grammar.y"
     {insertRecord("Identifier", (yyvsp[(1) - (3)].text), (yylsp[(1) - (3)]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[(1) - (3)].text), currentScope), (yyvsp[(3) - (3)].node));}
     break;
 
   case 46:
-#line 482 "grammar.y"
+#line 477 "grammar.y"
     {insertRecord("Identifier", (yyvsp[(1) - (3)].text), (yylsp[(1) - (3)]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[(1) - (3)].text), currentScope), (yyvsp[(3) - (3)].node));}
     break;
 
   case 47:
-#line 483 "grammar.y"
+#line 478 "grammar.y"
     {insertRecord("Identifier", (yyvsp[(1) - (3)].text), (yylsp[(1) - (3)]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[(1) - (3)].text), currentScope), (yyvsp[(3) - (3)].node));}
     break;
 
   case 48:
-#line 484 "grammar.y"
+#line 479 "grammar.y"
     {insertRecord("ListTypeID", (yyvsp[(1) - (4)].text), (yylsp[(1) - (4)]).first_line, currentScope); (yyval.node) = createID_Const("ListTypeID", (yyvsp[(1) - (4)].text), currentScope);}
     break;
 
   case 49:
-#line 486 "grammar.y"
+#line 481 "grammar.y"
     {(yyval.node) = createOp("Print", 1, (yyvsp[(3) - (4)].node));}
     break;
 
   case 50:
-#line 488 "grammar.y"
+#line 483 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 51:
-#line 489 "grammar.y"
+#line 484 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 52:
-#line 490 "grammar.y"
+#line 485 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 53:
-#line 492 "grammar.y"
+#line 487 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 54:
-#line 493 "grammar.y"
+#line 488 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 55:
-#line 496 "grammar.y"
+#line 491 "grammar.y"
     {(yyval.node) = createOp("If", 2, (yyvsp[(2) - (4)].node), (yyvsp[(4) - (4)].node));}
     break;
 
   case 56:
-#line 497 "grammar.y"
+#line 492 "grammar.y"
     {(yyval.node) = createOp("If", 3, (yyvsp[(2) - (5)].node), (yyvsp[(4) - (5)].node), (yyvsp[(5) - (5)].node));}
     break;
 
   case 57:
-#line 499 "grammar.y"
+#line 494 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 58:
-#line 500 "grammar.y"
+#line 495 "grammar.y"
     {(yyval.node) = createOp("Elif", 3, (yyvsp[(2) - (5)].node), (yyvsp[(4) - (5)].node), (yyvsp[(5) - (5)].node));}
     break;
 
   case 59:
-#line 502 "grammar.y"
+#line 497 "grammar.y"
     {(yyval.node) = createOp("Else", 1, (yyvsp[(3) - (3)].node));}
     break;
 
   case 60:
-#line 504 "grammar.y"
+#line 499 "grammar.y"
     {(yyval.node) = createOp("While", 2, (yyvsp[(2) - (4)].node), (yyvsp[(4) - (4)].node));}
     break;
 
   case 61:
-#line 506 "grammar.y"
+#line 501 "grammar.y"
     {(yyval.node) = (yyvsp[(1) - (1)].node);}
     break;
 
   case 62:
-#line 507 "grammar.y"
+#line 502 "grammar.y"
     {initNewTable((yyvsp[(2) - (2)].depth)+1); updateCScope((yyvsp[(2) - (2)].depth)+1);}
     break;
 
   case 63:
-#line 507 "grammar.y"
+#line 502 "grammar.y"
     {(yyval.node) = createOp("BeginBlock", 2, (yyvsp[(4) - (5)].node), (yyvsp[(5) - (5)].node));}
     break;
 
   case 64:
-#line 509 "grammar.y"
+#line 504 "grammar.y"
     {(yyval.node) = createOp("Next", 2, (yyvsp[(3) - (4)].node), (yyvsp[(4) - (4)].node));}
     break;
 
   case 65:
-#line 510 "grammar.y"
+#line 505 "grammar.y"
     {(yyval.node) = (yyvsp[(2) - (2)].node);}
     break;
 
   case 66:
-#line 512 "grammar.y"
+#line 507 "grammar.y"
     {updateCScope((yyvsp[(1) - (1)].depth)+1);}
     break;
 
   case 67:
-#line 512 "grammar.y"
+#line 507 "grammar.y"
     {(yyval.node) = createOp("EndBlock", 1, (yyvsp[(3) - (3)].node));}
     break;
 
   case 68:
-#line 513 "grammar.y"
+#line 508 "grammar.y"
     {(yyval.node) = createOp("EndBlock", 0);}
     break;
 
   case 69:
-#line 515 "grammar.y"
+#line 510 "grammar.y"
     {addToList((yyvsp[(1) - (2)].text)); (yyval.node) = createOp("Arguments", 1, argsList); clearArgsList();}
     break;
 
   case 70:
-#line 516 "grammar.y"
+#line 511 "grammar.y"
     {(yyval.node) = createOp("Void", 0);}
     break;
 
   case 71:
-#line 518 "grammar.y"
+#line 513 "grammar.y"
     {addToList((yyvsp[(1) - (2)].text));}
     break;
 
   case 73:
-#line 520 "grammar.y"
+#line 515 "grammar.y"
     {insertRecord("Func_Name", (yyvsp[(2) - (2)].text), (yylsp[(2) - (2)]).first_line, currentScope);}
     break;
 
   case 74:
-#line 520 "grammar.y"
+#line 515 "grammar.y"
     {(yyval.node) = createOp((yyvsp[(2) - (8)].text), 2, (yyvsp[(5) - (8)].node), (yyvsp[(8) - (8)].node));}
     break;
 
   case 75:
-#line 522 "grammar.y"
+#line 517 "grammar.y"
     {(yyval.node) = createOp((yyvsp[(1) - (4)].text), 1, (yyvsp[(3) - (4)].node));}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 2339 "y.tab.c"
+#line 2334 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2555,10 +2550,10 @@ yyreturn:
 }
 
 
-#line 524 "grammar.y"
+#line 519 "grammar.y"
 
 
-int yyerror(char *msg)
+int yyerror(const char *msg)
 {
 	printf("\nSyntax Error at Line %d, Column : %d\n",  yylineno, yylloc.last_column);
 	exit(0);

@@ -1,0 +1,83 @@
+.data
+x: .word 0
+y: .word 0
+a: .word 0
+b: .word 0
+c: .word 0
+d: .word 0
+c: .word 0
+
+.text
+.global _start
+
+_start:
+	MOV R0,#2
+	LDR R1,addr_x
+	LDR R2,[R1]
+	MOV R2,R0
+	MOV R3,#1
+	LDR R4,addr_y
+	LDR R5,[R4]
+	MOV R5,R3
+	MOV R6,#3
+	LDR R7,addr_a
+	LDR R8,[R7]
+	MOV R8,R6
+	MOV R9,#4
+	LDR R10,addr_b
+	LDR R11,[R10]
+	MOV R11,R9
+	MOV R0,#2
+	LDR R1,addr_c
+	LDR R3,addr_x
+	STR R2,[R3]
+	LDR R2,[R1]
+	MOV R2,R0
+	MOV R4,R8
+	LDR R6,addr_y
+	STR R5,[R6]
+	MOV R5,R11
+	ADD R7,R4,R5
+	LDR R9,addr_a
+	STR R8,[R9]
+	LDR R8,addr_d
+	LDR R10,[R8]
+	MOV R10,R7
+	LDR R0,addr_b
+	STR R11,[R0]
+	MOV R11,R1
+	MOV R3,#1
+	CMP R11,R3
+	BNE L0
+	LDR R3,addr_c
+	STR R2,[R3]
+	MOV R2,#1
+	LDR R4,addr_c
+	LDR R6,[R4]
+	MOV R6,R2
+	B L1
+L0: MOV R5,R7
+	MOV R9,#1
+	CMP R5,R9
+	BNE L0
+	MOV R8,#2
+	MOV R6,R8
+	B L1
+	LDR R11,addr_d
+	STR R10,[R11]
+L1: MOV R10,#1
+	MOV R6,R10
+	LDR R0,addr_x
+	STR R1,[R0]
+	STR R6,[R3]
+	STR R1,[R0]
+	LDR R1,addr_y
+	STR R7,[R1]
+
+addr_x: .word x
+addr_y: .word y
+addr_a: .word a
+addr_b: .word b
+addr_c: .word c
+addr_d: .word d
+addr_c: .word c

@@ -81,10 +81,6 @@
 	
   void codeGenOp(node *opNode)
   {
-  	if(!strcmp(opNode->NType, "If"))
-  	{
-  	
-  	}
 	}
 	
 	void codeGenValue(char *type, char *value)
@@ -363,30 +359,29 @@
 	  
 	  if(root->noOps >= 0)
 	  {
-	    /*int i;
+	    int i;
 	    for(i = 0; i < tabCount; i++)
 	    {
 	      printf("  ");
-	    }*/
+	    }
 	    
 	    printf("%s\n", root->NType);
 	    
-	    //tabCount++;
-	    for(int i=0; i < root->noOps; i++)
+	    tabCount++;
+	    for(i=0; i < root->noOps; i++)
 	    {
 	      printAST(root->NextLevel[i]);
 	    }
-	    //printf("\n");
-	    //tabCount--;
+	    tabCount--;
 	  }
 	  
 	  if(root->noOps == -1)
 	  {
 	    int i = 0;
-	    /*for(i = 0; i < tabCount; i++)
+	    for(i = 0; i < tabCount; i++)
 	    {
 	      printf("  ");
-	    }*/
+	    }
 	    
 	    printf("%s ", root->id->name);
 	  }	  
@@ -523,7 +518,7 @@ func_call : T_ID T_OP args T_CP {$$ = createOp($<text>1, 1, $3);};
  
 %%
 
-int yyerror(char *msg)
+int yyerror(const char *msg)
 {
 	printf("\nSyntax Error at Line %d, Column : %d\n",  yylineno, yylloc.last_column);
 	exit(0);

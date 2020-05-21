@@ -1,8 +1,10 @@
-import pandas
-x=20
-y=1
-z=x+y
-listX=[]
+#Hmm
+import hWorld
+#Hmm
+x=10
+y=10
+x+y
+listX = []
 def func():
 	while(listX[1]==y):
 		c=0
@@ -14,4 +16,4 @@ def func():
 	z=12
 
 if(x==y):
-	z=y
+	z=10

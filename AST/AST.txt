@@ -1,0 +1,63 @@
+
+Valid Python Syntax
+----------------------------All Symbol Tables----------------------------
+Scope	Name	Type		Declaration	Last Used Line
+(0, 1)	hWorld	PackageName	2		2
+(0, 1)	10	Constant	4		5
+(0, 1)	x	Identifier	4		18
+(0, 1)	y	Identifier	5		18
+(0, 1)	listX	ListTypeID	7		9
+(0, 1)	func	Func_Name	8		8
+(0, 3)	1	Constant	9		9
+(0, 3)	12	Constant	16		16
+(0, 3)	z	Identifier	16		16
+(1, 4)	0	Constant	10		10
+(1, 4)	c	Identifier	10		10
+(1, 4)	10	Constant	11		11
+(1, 4)	z	Identifier	11		13
+(1, 4)	b	Identifier	12		14
+(1, 4)	21	Constant	15		15
+(1, 4)	w	Identifier	15		15
+(2, 5)	10	Constant	14		14
+(2, 5)	c	Identifier	14		14
+(1, 9)	10	Constant	19		19
+(1, 9)	z	Identifier	19		19
+-------------------------------------------------------------------------
+NewScope
+  import
+    hWorld   NewScope
+    =
+      x       10     NewScope
+      =
+        y         10       NewScope
+        +
+          x           y         NewScope
+          listX           NewScope
+            func
+              Void
+              BeginBlock
+                While
+                  ==
+                    ListIndex
+                      1                     y                   BeginBlock
+                    =
+                      c                       0                     Next
+                      =
+                        z                         10                       Next
+                        =
+                          b                           z                         Next
+                          If
+                            ==
+                              z                               b                             BeginBlock
+                              =
+                                c                                 +
+                                  10                                   b                               EndBlock
+                                =
+                                  w                                   21                           EndBlock
+                            =
+                              z                               12                 EndBlock
+            If
+              ==
+                x                 y               BeginBlock
+                =
+                  z                   10                 EndBlock
