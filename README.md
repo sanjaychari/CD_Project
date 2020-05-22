@@ -15,7 +15,7 @@ The generated tokens can be found in tokens.txt, and the symbol table is in symb
 $lex grammar.l
 $yacc -d grammar.y
 $gcc lex.yy.c y.tab.c -ll $./a.out<TestInput1.txt > output.txt
-4. To view AST with ICG, run $cd ../AST_With_ICG
+4. To view AST with ICG, run $cd ../AST_and_ICG
 $lex grammar.l
 $yacc -d grammar.y
 $gcc lex.yy.c y.tab.c -ll $./a.out<TestInput1.txt > output.txt
