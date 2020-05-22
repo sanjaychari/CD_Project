@@ -24,4 +24,4 @@ $lex grammar.l
 $yacc -d grammar.y
 $gcc lex.yy.c y.tab.c -ll $./a.out<input2.py > output.txt
 6. To view assembly code,
- $lex assembly.l && yacc -dv assembly.y $gcc lex.yy.c y.tab.c
+ $cd ../Assembly $cat ICG.txt|python3 assembly.py>assembly.txt
