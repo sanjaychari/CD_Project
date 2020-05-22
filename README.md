@@ -14,11 +14,11 @@ The generated tokens can be found in tokens.txt, and the symbol table is in symb
 3. To view only the AST, run $cd ../AST
 $lex grammar.l
 $yacc -d grammar.y
-$gcc lex.yy.c y.tab.c -ll $./a.out<TestInput1.txt > output.txt
+$gcc lex.yy.c y.tab.c -ll $./a.out<input2.py > output.txt
 4. To view AST with ICG, run $cd ../AST_and_ICG
 $lex grammar.l
 $yacc -d grammar.y
-$gcc lex.yy.c y.tab.c -ll $./a.out<TestInput1.txt > output.txt
+$gcc lex.yy.c y.tab.c -ll $./a.out<input2.py > output.txt
 5. To view AST with ICG and code optimisation, run $cd ../Code_Opt
 $lex grammar.l
 $yacc -d grammar.y
