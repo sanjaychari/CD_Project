@@ -1,0 +1,19 @@
+#Hmm
+import hWorld
+#Hmm
+x=10
+y=10
+x+y
+listX = []
+def func():
+	while(listX[1]==y):
+		c=0
+		z=10
+		b=z
+		if(z==b):
+			c=10+b
+		w=21
+	z=12
+
+if(x==y):
+	z=10
